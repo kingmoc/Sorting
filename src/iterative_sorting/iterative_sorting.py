@@ -40,7 +40,30 @@ def bubble_sort( arr ):
 
 
 
-# # STRETCH: implement the Count Sort function below
-# def count_sort( arr, maximum=-1 ):
+# STRETCH: implement the Count Sort function below
+def count_sort( arr, maximum=-1 ):
 
-#     # return arr
+    # create counts arr with 0s
+    counts = [0] * 200
+    arr_sorted = []
+
+    # iterate each num in arr (building counts arr)
+    for i in range(0, len(arr)):
+        # count num to match index in counts arr
+        index = arr[i]
+        if index <= maximum:
+            return "Error, negative numbers not allowed in Count Sort"
+        # print(counts[index])
+        counts[index] += 1
+
+    # iterate counts arr (building sorted)
+    for i in range(0, len(counts)):
+        # add num of index to match sort arr
+        if counts[i] != 0:
+            arr_sorted.extend([i] * counts[i])
+        
+
+    return arr_sorted
+
+
+# print(count_sort([]))
